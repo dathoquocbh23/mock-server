@@ -3,15 +3,15 @@
 // Empty chatText ("") = silent step — no narration mirror.
 //
 // COLOR SYSTEM:
-//   Idle state  → all faces share dark slate body #1e293b, stroke #475569 (unified solid object)
-//   Highlighted → each element gets its unique vivid accent (dark tinted fill + bright stroke)
-//     Base ABCD : amber   fill #451a03  stroke #f59e0b  label #fcd34d
-//     Plane SBC : blue    fill #172554  stroke #3b82f6  label #93c5fd
-//     Plane SAD : emerald fill #052e16  stroke #10b981  label #6ee7b7
-//     Plane SAB : violet  fill #2e1065  stroke #8b5cf6  label #c4b5fd
-//     Plane SCD : orange  fill #431407  stroke #f97316  label #fdba74
-//     Line MN   : cyan    fill #083344  stroke #22d3ee  label #67e8f9
-//     Point I   : rose    fill #4c0519  stroke #f43f5e  label #fda4af
+//   Idle  → all faces: fill #f8fafc  stroke #cbd5e1  labelColor #64748b   (soft light slate)
+//   Highlighted → light tinted fill + vivid dark stroke + dark label text
+//     Base ABCD : amber   fill #FAEEDA  stroke #BA7517  label #633806
+//     Plane SBC : blue    fill #E6F1FB  stroke #185FA5  label #0C447C
+//     Plane SAD : teal    fill #E1F5EE  stroke #0F6E56  label #085041
+//     Plane SAB : purple  fill #EEEDFE  stroke #534AB7  label #3C3489
+//     Plane SCD : coral   fill #FAECE7  stroke #993C1D  label #712B13
+//     Line MN   : green   fill #EAF3DE  stroke #3B6D11  label #27500A
+//     Point I   : pink    fill #FBEAF0  stroke #993556  label #72243E
 
 const SCENE_SCRIPT = [
 
@@ -34,14 +34,12 @@ const SCENE_SCRIPT = [
           { name: 'C', x: 4, y: 3, z: 0 },
           { name: 'D', x: 1, y: 3, z: 0 }
         ],
-        // Idle: unified dark slate
-        color: '#1e293b',
-        stroke: '#475569',
+        color: '#f8fafc',
+        stroke: '#cbd5e1',
         opacity: 0.85,
-        // Highlight: amber
-        highlightColor: '#451a03',
-        highlightStroke: '#f59e0b',
-        highlightLabelColor: '#fcd34d',
+        highlightColor: '#FAEEDA',
+        highlightStroke: '#BA7517',
+        highlightLabelColor: '#633806',
         doubleSide: true
       },
       point: null, edges: null, circle: null, surface: null, highlights: null,
@@ -63,9 +61,9 @@ const SCENE_SCRIPT = [
       point: {
         name: 'A', x: 0, y: 0, z: 0,
         pointType: 'GIVEN',
-        color: '#e2e8f0',
+        color: '#475569',
         radius: 0.12,
-        label: { text: 'A', subtext: null, color: '#e2e8f0', fontSize: 14 }
+        label: { text: 'A', subtext: null, color: '#334155', fontSize: 14 }
       },
       edges: null, plane: null, circle: null, surface: null, highlights: null,
       camera: { position: { x: 7, y: 6, z: 6 }, target: { x: 2, y: 1.5, z: 1.5 }, duration: 0 },
@@ -86,9 +84,9 @@ const SCENE_SCRIPT = [
       point: {
         name: 'B', x: 3, y: 0, z: 0,
         pointType: 'GIVEN',
-        color: '#e2e8f0',
+        color: '#475569',
         radius: 0.12,
-        label: { text: 'B', subtext: null, color: '#e2e8f0', fontSize: 14 }
+        label: { text: 'B', subtext: null, color: '#334155', fontSize: 14 }
       },
       edges: null, plane: null, circle: null, surface: null, highlights: null,
       camera: { position: { x: 7, y: 6, z: 6 }, target: { x: 2, y: 1.5, z: 1.5 }, duration: 0 },
@@ -109,9 +107,9 @@ const SCENE_SCRIPT = [
       point: {
         name: 'C', x: 4, y: 3, z: 0,
         pointType: 'GIVEN',
-        color: '#e2e8f0',
+        color: '#475569',
         radius: 0.12,
-        label: { text: 'C', subtext: null, color: '#e2e8f0', fontSize: 14 }
+        label: { text: 'C', subtext: null, color: '#334155', fontSize: 14 }
       },
       edges: null, plane: null, circle: null, surface: null, highlights: null,
       camera: { position: { x: 7, y: 6, z: 6 }, target: { x: 2, y: 1.5, z: 1.5 }, duration: 0 },
@@ -132,9 +130,9 @@ const SCENE_SCRIPT = [
       point: {
         name: 'D', x: 1, y: 3, z: 0,
         pointType: 'GIVEN',
-        color: '#e2e8f0',
+        color: '#475569',
         radius: 0.12,
-        label: { text: 'D', subtext: null, color: '#e2e8f0', fontSize: 14 }
+        label: { text: 'D', subtext: null, color: '#334155', fontSize: 14 }
       },
       edges: null, plane: null, circle: null, surface: null, highlights: null,
       camera: { position: { x: 7, y: 6, z: 6 }, target: { x: 2, y: 1.5, z: 1.5 }, duration: 0 },
@@ -153,10 +151,10 @@ const SCENE_SCRIPT = [
       chatText: 'Kết nối các đỉnh — hình bình hành ABCD hoàn chỉnh.',
       actionType: 'DRAW_EDGES',
       edges: [
-        { name: 'AB', fromPoint: 'A', toPoint: 'B', fromCoords: { x: 0, y: 0, z: 0 }, toCoords: { x: 3, y: 0, z: 0 }, lineType: 'EDGE', color: '#475569', style: 'SOLID', width: 2 },
-        { name: 'BC', fromPoint: 'B', toPoint: 'C', fromCoords: { x: 3, y: 0, z: 0 }, toCoords: { x: 4, y: 3, z: 0 }, lineType: 'EDGE', color: '#475569', style: 'SOLID', width: 2 },
-        { name: 'CD', fromPoint: 'C', toPoint: 'D', fromCoords: { x: 4, y: 3, z: 0 }, toCoords: { x: 1, y: 3, z: 0 }, lineType: 'EDGE', color: '#475569', style: 'SOLID', width: 2 },
-        { name: 'DA', fromPoint: 'D', toPoint: 'A', fromCoords: { x: 1, y: 3, z: 0 }, toCoords: { x: 0, y: 0, z: 0 }, lineType: 'EDGE', color: '#475569', style: 'SOLID', width: 2 }
+        { name: 'AB', fromPoint: 'A', toPoint: 'B', fromCoords: { x: 0, y: 0, z: 0 }, toCoords: { x: 3, y: 0, z: 0 }, lineType: 'EDGE', color: '#94a3b8', style: 'SOLID', width: 2 },
+        { name: 'BC', fromPoint: 'B', toPoint: 'C', fromCoords: { x: 3, y: 0, z: 0 }, toCoords: { x: 4, y: 3, z: 0 }, lineType: 'EDGE', color: '#94a3b8', style: 'SOLID', width: 2 },
+        { name: 'CD', fromPoint: 'C', toPoint: 'D', fromCoords: { x: 4, y: 3, z: 0 }, toCoords: { x: 1, y: 3, z: 0 }, lineType: 'EDGE', color: '#94a3b8', style: 'SOLID', width: 2 },
+        { name: 'DA', fromPoint: 'D', toPoint: 'A', fromCoords: { x: 1, y: 3, z: 0 }, toCoords: { x: 0, y: 0, z: 0 }, lineType: 'EDGE', color: '#94a3b8', style: 'SOLID', width: 2 }
       ],
       point: null, plane: null, circle: null, surface: null, highlights: null,
       camera: { position: { x: 7, y: 6, z: 6 }, target: { x: 2, y: 1.5, z: 1.5 }, duration: 0 },
@@ -177,9 +175,9 @@ const SCENE_SCRIPT = [
       point: {
         name: 'S', x: 0, y: 0, z: 3,
         pointType: 'GIVEN',
-        color: '#e2e8f0',
+        color: '#475569',
         radius: 0.15,
-        label: { text: 'S', subtext: null, color: '#e2e8f0', fontSize: 14 }
+        label: { text: 'S', subtext: null, color: '#334155', fontSize: 14 }
       },
       edges: null, plane: null, circle: null, surface: null, highlights: null,
       camera: { position: { x: 7, y: 6, z: 7.5 }, target: { x: 2, y: 1.5, z: 1.5 }, duration: 600 },
@@ -198,10 +196,10 @@ const SCENE_SCRIPT = [
       chatText: 'Nối S xuống các đỉnh A, B, C, D — hình chóp S.ABCD hoàn chỉnh.',
       actionType: 'DRAW_EDGES',
       edges: [
-        { name: 'SA', fromPoint: 'S', toPoint: 'A', fromCoords: { x: 0, y: 0, z: 3 }, toCoords: { x: 0, y: 0, z: 0 }, lineType: 'EDGE', color: '#475569', style: 'SOLID', width: 2 },
-        { name: 'SB', fromPoint: 'S', toPoint: 'B', fromCoords: { x: 0, y: 0, z: 3 }, toCoords: { x: 3, y: 0, z: 0 }, lineType: 'EDGE', color: '#475569', style: 'SOLID', width: 2 },
-        { name: 'SC', fromPoint: 'S', toPoint: 'C', fromCoords: { x: 0, y: 0, z: 3 }, toCoords: { x: 4, y: 3, z: 0 }, lineType: 'EDGE', color: '#475569', style: 'SOLID', width: 2 },
-        { name: 'SD', fromPoint: 'S', toPoint: 'D', fromCoords: { x: 0, y: 0, z: 3 }, toCoords: { x: 1, y: 3, z: 0 }, lineType: 'EDGE', color: '#475569', style: 'SOLID', width: 2 }
+        { name: 'SA', fromPoint: 'S', toPoint: 'A', fromCoords: { x: 0, y: 0, z: 3 }, toCoords: { x: 0, y: 0, z: 0 }, lineType: 'EDGE', color: '#94a3b8', style: 'SOLID', width: 2 },
+        { name: 'SB', fromPoint: 'S', toPoint: 'B', fromCoords: { x: 0, y: 0, z: 3 }, toCoords: { x: 3, y: 0, z: 0 }, lineType: 'EDGE', color: '#94a3b8', style: 'SOLID', width: 2 },
+        { name: 'SC', fromPoint: 'S', toPoint: 'C', fromCoords: { x: 0, y: 0, z: 3 }, toCoords: { x: 4, y: 3, z: 0 }, lineType: 'EDGE', color: '#94a3b8', style: 'SOLID', width: 2 },
+        { name: 'SD', fromPoint: 'S', toPoint: 'D', fromCoords: { x: 0, y: 0, z: 3 }, toCoords: { x: 1, y: 3, z: 0 }, lineType: 'EDGE', color: '#94a3b8', style: 'SOLID', width: 2 }
       ],
       point: null, plane: null, circle: null, surface: null, highlights: null,
       camera: { position: { x: 7, y: 6, z: 7.5 }, target: { x: 2, y: 1.5, z: 1.5 }, duration: 0 },
@@ -227,14 +225,12 @@ const SCENE_SCRIPT = [
           { name: 'B', x: 3, y: 0, z: 0 },
           { name: 'C', x: 4, y: 3, z: 0 }
         ],
-        // Idle: unified dark slate
-        color: '#1e293b',
-        stroke: '#475569',
+        color: '#f8fafc',
+        stroke: '#cbd5e1',
         opacity: 0.85,
-        // Highlight: blue
-        highlightColor: '#172554',
-        highlightStroke: '#3b82f6',
-        highlightLabelColor: '#93c5fd',
+        highlightColor: '#E6F1FB',
+        highlightStroke: '#185FA5',
+        highlightLabelColor: '#0C447C',
         doubleSide: true
       },
       point: null, edges: null, circle: null, surface: null, highlights: null,
@@ -256,11 +252,10 @@ const SCENE_SCRIPT = [
       point: {
         name: 'M', x: 0.5, y: 1.5, z: 1.5,
         pointType: 'GIVEN',
-        // Idle: muted slate; Highlight: amber (same family as base)
         color: '#94a3b8',
-        highlightColor: '#f59e0b',
+        highlightColor: '#BA7517',
         radius: 0.15,
-        label: { text: 'M', subtext: 'midpoint SD', color: '#94a3b8', highlightLabelColor: '#fcd34d', fontSize: 13 }
+        label: { text: 'M', subtext: 'midpoint SD', color: '#64748b', highlightLabelColor: '#633806', fontSize: 13 }
       },
       edges: null, plane: null, circle: null, surface: null, highlights: null,
       camera: { position: { x: 8.5, y: 4.5, z: 6 }, target: { x: 2, y: 1.5, z: 1.5 }, duration: 0 },
@@ -279,8 +274,8 @@ const SCENE_SCRIPT = [
       chatText: '✦ Chú ý SD và điểm M — mối quan hệ này dùng ngay sau.',
       actionType: 'HIGHLIGHT',
       highlights: [
-        { elementName: 'SD', elementType: 'EDGE', color: '#f59e0b', duration: 2000 },
-        { elementName: 'M',  elementType: 'POINT', color: '#f59e0b', duration: 2000 }
+        { elementName: 'SD', elementType: 'EDGE',  color: '#BA7517', duration: 2000 },
+        { elementName: 'M',  elementType: 'POINT', color: '#BA7517', duration: 2000 }
       ],
       point: null, edges: null, plane: null, circle: null, surface: null,
       camera: { position: { x: 8.5, y: 4.5, z: 6 }, target: { x: 2, y: 1.5, z: 1.5 }, duration: 0 },
@@ -301,11 +296,10 @@ const SCENE_SCRIPT = [
       point: {
         name: 'N', x: 1, y: 0, z: 1,
         pointType: 'GIVEN',
-        // Idle: muted slate; Highlight: violet (same family as SAB)
         color: '#94a3b8',
-        highlightColor: '#8b5cf6',
+        highlightColor: '#534AB7',
         radius: 0.15,
-        label: { text: 'N', subtext: 'centroid SAB', color: '#94a3b8', highlightLabelColor: '#c4b5fd', fontSize: 13 }
+        label: { text: 'N', subtext: 'centroid SAB', color: '#64748b', highlightLabelColor: '#3C3489', fontSize: 13 }
       },
       edges: null, plane: null, circle: null, surface: null, highlights: null,
       camera: { position: { x: 8.5, y: 4.5, z: 6 }, target: { x: 2, y: 1.5, z: 1.5 }, duration: 0 },
@@ -331,14 +325,12 @@ const SCENE_SCRIPT = [
           { name: 'A', x: 0, y: 0, z: 0 },
           { name: 'D', x: 1, y: 3, z: 0 }
         ],
-        // Idle: unified dark slate
-        color: '#1e293b',
-        stroke: '#475569',
+        color: '#f8fafc',
+        stroke: '#cbd5e1',
         opacity: 0.85,
-        // Highlight: emerald
-        highlightColor: '#052e16',
-        highlightStroke: '#10b981',
-        highlightLabelColor: '#6ee7b7',
+        highlightColor: '#E1F5EE',
+        highlightStroke: '#0F6E56',
+        highlightLabelColor: '#085041',
         doubleSide: true
       },
       point: null, edges: null, circle: null, surface: null, highlights: null,
@@ -365,14 +357,12 @@ const SCENE_SCRIPT = [
           { name: 'A', x: 0, y: 0, z: 0 },
           { name: 'B', x: 3, y: 0, z: 0 }
         ],
-        // Idle: unified dark slate
-        color: '#1e293b',
-        stroke: '#475569',
+        color: '#f8fafc',
+        stroke: '#cbd5e1',
         opacity: 0.85,
-        // Highlight: violet
-        highlightColor: '#2e1065',
-        highlightStroke: '#8b5cf6',
-        highlightLabelColor: '#c4b5fd',
+        highlightColor: '#EEEDFE',
+        highlightStroke: '#534AB7',
+        highlightLabelColor: '#3C3489',
         doubleSide: true
       },
       point: null, edges: null, circle: null, surface: null, highlights: null,
@@ -399,14 +389,12 @@ const SCENE_SCRIPT = [
           { name: 'C', x: 4, y: 3, z: 0 },
           { name: 'D', x: 1, y: 3, z: 0 }
         ],
-        // Idle: unified dark slate
-        color: '#1e293b',
-        stroke: '#475569',
+        color: '#f8fafc',
+        stroke: '#cbd5e1',
         opacity: 0.85,
-        // Highlight: orange
-        highlightColor: '#431407',
-        highlightStroke: '#f97316',
-        highlightLabelColor: '#fdba74',
+        highlightColor: '#FAECE7',
+        highlightStroke: '#993C1D',
+        highlightLabelColor: '#712B13',
         doubleSide: true
       },
       point: null, edges: null, circle: null, surface: null, highlights: null,
@@ -432,9 +420,8 @@ const SCENE_SCRIPT = [
           fromCoords: { x: 0.5, y: 1.5, z: 1.5 },
           toCoords:   { x: 1,   y: 0,   z: 1   },
           lineType: 'EDGE',
-          // Idle: muted slate; Highlight: cyan
-          color: '#475569',
-          highlightColor: '#22d3ee',
+          color: '#94a3b8',
+          highlightColor: '#3B6D11',
           style: 'SOLID', width: 2
         }
       ],
@@ -457,11 +444,10 @@ const SCENE_SCRIPT = [
       point: {
         name: 'I', x: 2, y: -3, z: 0,
         pointType: 'GIVEN',
-        // Idle: muted slate; Highlight: rose
         color: '#94a3b8',
-        highlightColor: '#f43f5e',
+        highlightColor: '#993556',
         radius: 0.18,
-        label: { text: 'I', subtext: '∩ (SBC)', color: '#94a3b8', highlightLabelColor: '#fda4af', fontSize: 14 }
+        label: { text: 'I', subtext: '∩ (SBC)', color: '#64748b', highlightLabelColor: '#72243E', fontSize: 14 }
       },
       edges: null, plane: null, circle: null, surface: null, highlights: null,
       camera: { position: { x: 9, y: -3, z: 6 }, target: { x: 2, y: -0.5, z: 1.5 }, duration: 0 },
@@ -486,9 +472,8 @@ const SCENE_SCRIPT = [
           fromCoords: { x: 1, y: 0,  z: 1 },
           toCoords:   { x: 2, y: -3, z: 0 },
           lineType: 'EDGE',
-          // Idle: muted slate; Highlight: cyan (same as MN)
-          color: '#475569',
-          highlightColor: '#22d3ee',
+          color: '#94a3b8',
+          highlightColor: '#3B6D11',
           style: 'SOLID', width: 2
         }
       ],
@@ -516,14 +501,12 @@ const SCENE_SCRIPT = [
           { name: 'I', x: 2, y: -3, z: 0 },
           { name: 'B', x: 3, y: 0,  z: 0 }
         ],
-        // Idle: unified dark slate
-        color: '#1e293b',
-        stroke: '#475569',
+        color: '#f8fafc',
+        stroke: '#cbd5e1',
         opacity: 0.85,
-        // Highlight: rose
-        highlightColor: '#4c0519',
-        highlightStroke: '#f43f5e',
-        highlightLabelColor: '#fda4af',
+        highlightColor: '#FBEAF0',
+        highlightStroke: '#993556',
+        highlightLabelColor: '#72243E',
         doubleSide: true
       },
       point: null, edges: null, circle: null, surface: null, highlights: null,
@@ -550,14 +533,12 @@ const SCENE_SCRIPT = [
           { name: 'I', x: 2, y: -3, z: 0 },
           { name: 'A', x: 0, y: 0,  z: 0 }
         ],
-        // Idle: unified dark slate
-        color: '#1e293b',
-        stroke: '#475569',
+        color: '#f8fafc',
+        stroke: '#cbd5e1',
         opacity: 0.85,
-        // Highlight: orange (warm, adjacent to rose)
-        highlightColor: '#431407',
-        highlightStroke: '#fb923c',
-        highlightLabelColor: '#fdba74',
+        highlightColor: '#FAECE7',
+        highlightStroke: '#993C1D',
+        highlightLabelColor: '#712B13',
         doubleSide: true
       },
       point: null, edges: null, circle: null, surface: null, highlights: null,
@@ -584,14 +565,12 @@ const SCENE_SCRIPT = [
           { name: 'I', x: 2, y: -3, z: 0 },
           { name: 'D', x: 1, y: 3,  z: 0 }
         ],
-        // Idle: unified dark slate
-        color: '#1e293b',
-        stroke: '#475569',
+        color: '#f8fafc',
+        stroke: '#cbd5e1',
         opacity: 0.85,
-        // Highlight: amber/yellow
-        highlightColor: '#451a03',
-        highlightStroke: '#facc15',
-        highlightLabelColor: '#fef08a',
+        highlightColor: '#FAEEDA',
+        highlightStroke: '#BA7517',
+        highlightLabelColor: '#633806',
         doubleSide: true
       },
       point: null, edges: null, circle: null, surface: null, highlights: null,
